@@ -29,6 +29,18 @@ For Output 1, Prt = 4305.31875. We truncate to 4305.31. For Output 2, Prt = 1336
 import java.util.Scanner;
 import java.lang.Math;
 class Main {
+  public static String addZero(double num,int zeros){
+      String num1 = "" +  num ;
+      if (num-(int)num == 0 ){
+        for(int i = 0; i<zeros; i++){
+          num1+= "0";
+        }
+        return num1;
+      }
+      else{
+        return num1;
+      }
+    }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int P = sc.nextInt();
@@ -36,6 +48,6 @@ class Main {
     int T = sc.nextInt();
     double amount = P * R * T;
     amount = Math.floor(amount*100);
-    System.out.print(amount/100);
+    System.out.print(addZero(amount/100,1));
   }
 }
