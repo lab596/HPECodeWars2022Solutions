@@ -36,6 +36,18 @@ E.G.
 import java.util.Scanner;
 import java.lang.Math;
 class Main {
+  public static String addZero(double num,int zeros){
+      String num1 = "" +  num ;
+      if (num-(int)num == 0 ){
+        for(int i = 0; i<zeros; i++){
+          num1+= "0";
+        }
+        return num1;
+      }
+      else{
+        return num1;
+      }
+    }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int PTS = sc.nextInt();
@@ -43,6 +55,6 @@ class Main {
     int FTA = sc.nextInt();
     double percent = 100 * PTS/(2*(FGA+(0.44*FTA)));
     percent = Math.round(percent*100);
-    System.out.print(percent/100 + "%");
+    System.out.print(addZero(percent/100,1) + "%");
   }
 }
