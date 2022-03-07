@@ -51,7 +51,6 @@ import java.lang.Math;
 class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    //ArrayList<String> finall = new ArrayList<>();
     ArrayList<Integer> inches = new ArrayList<Integer>();
     ArrayList<Integer> prices = new ArrayList<Integer>();
     for(int j = 0; j<3; j++){
