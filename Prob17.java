@@ -49,6 +49,20 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.Math;
 class Main {
+
+  public static String addZero(double num,int zeros){
+      String num1 = "" +  num ;
+      if (num-(int)num == 0 ){
+        for(int i = 0; i<zeros; i++){
+          num1+= "0";
+        }
+        return num1;
+      }
+      else{
+        return num1;
+      }
+    }
+  
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     ArrayList<Integer> inches = new ArrayList<Integer>();
@@ -72,10 +86,10 @@ class Main {
     double cu2 = ((inches.get(0) * inches.get(1) * inches.get(2))/(12.0*12.0*12.0))/27.0;
     double R = Math.ceil((cu2 * 0.8)*1000);
     double P = Math.ceil((cu2 * 0.2)*1000);
-    System.out.println("R " + R/1000 + " cu yd");
-    System.out.println("P " + P/1000 + " cu yd");
+    System.out.println("R " + addZero(R/1000,2) + " cu yd");
+    System.out.println("P " + addZero(P/1000,2) + " cu yd");
     double cost = ((R/1000)*prices.get(0)) + ((P/1000)*prices.get(1));
     cost = Math.ceil(cost*100);
-    System.out.println("T " + cost/100 + " dollars");
-  }
+    System.out.println("T " + addZero(cost/100,1) + " dollars");
+    } 
 }
