@@ -1,2 +1,2 @@
 # HPECodeWars2022Solutions
-HPE CodeWars solutions in java
+Coding challenge solutions from the 2022 codewars tournament @ https://hpecodewars.org/. My team placed third overall in the Roseville in person tournament, and these are the challenge problems we completed in order to reach a grand total of 55 points. The solutions are converted to java by me (we used python in the tournament), and code with inputs were tested on repelit(https://replit.com/~ a coding IDE).
