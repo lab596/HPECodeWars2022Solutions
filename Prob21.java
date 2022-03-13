@@ -141,11 +141,10 @@ class Main {
     for(int i =0; i<team4g.size();i++){
       team4totg+=team4g.get(i);
     }
-    ArrayList<Integer> points = new ArrayList<>(Arrays.asList(team1totp, team2totp, team3totp, team3totp));
-    Collections.sort(points);
-    Collections.reverse(points);
-    
+    ArrayList<Integer> total = new ArrayList<>(Arrays.asList(team1totp,team2totp, team3totp, team4totp));
+    //ArrayList<String> finall = new ArrayList<>();
+    Collections.sort(total);
+    Collections.reverse(total);
   }
-}
-      
 
+}
