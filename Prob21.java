@@ -1,10 +1,37 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.lang.Math;
-import java.util.*;
-import java.util.Collections;
+
+
+class Team{
+    public int pointCount;
+    public int goalCount;
+    public String name;
+    public Team(int pointCount, int goalCount, String name){
+      this.pointCount = pointCount;
+      this.goalCount = goalCount;
+      this.name = name;
+    }
+}
+
 class Main {
 
+  public static Team[] bubbleSort(Team[] teams) {
+    boolean sorted = false;
+    Team temp;
+    while(!sorted) {
+        sorted = true;
+        for (int i = 0; i < teams.length - 1; i++) {
+            if (teams[i].pointCount > teams[i+1].pointCount || (teams[i].pointCount == teams[i+1].pointCount && teams[i].goalCount > teams[i+1].goalCount)) {
+                temp = teams[i];
+                teams[i] = teams[i+1];
+                teams[i+1] = temp;
+                sorted = false;
+            }
+        }
+    }
+    return teams;
+}
+  
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String team1 = sc.nextLine();
@@ -128,10 +155,19 @@ class Main {
     for(int i =0; i<team4g.size();i++){
       team4totg+=team4g.get(i);
     }
-    ArrayList<Integer> total = new ArrayList<>(Arrays.asList(team1totp,team2totp, team3totp, team4totp));
-    //ArrayList<String> finall = new ArrayList<>();
-    Collections.sort(total);
-    Collections.reverse(total);
+
+    Team[] taems = bubbleSort(new Team[]{
+      new Team(team1totp, team1totg, team1),
+      new Team(team2totp, team2totg, team2),
+      new Team(team3totp, team3totg, team3),
+      new Team(team4totp, team4totg, team4),
+    });
+
+    for (int i = taems.length-1; i>=0;i--){
+      System.out.println( taems[i].name + " " + taems[i].pointCount+ " "+ taems[i].goalCount);
+    }
+    
   }
+  
 
 }
