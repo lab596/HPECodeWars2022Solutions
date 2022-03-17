@@ -5,19 +5,6 @@ import java.util.*;
 import java.util.Collections;
 class Main {
 
-  public static String addZero(double num,int zeros){
-      String num1 = "" +  num ;
-      if (num-(int)num == 0 ){
-        for(int i = 0; i<zeros; i++){
-          num1+= "0";
-        }
-        return num1;
-      }
-      else{
-        return num1;
-      }
-    }
-  
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String team1 = sc.nextLine();
