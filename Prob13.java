@@ -2,10 +2,21 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.*;
 class Main {
+  public static String format(ArrayList<String> nums){
+    String result=" ";
+    for(int i=0;i<nums.size();i++){
+      if(i==nums.size()-1){
+        result = result + "#";
+      }
+      result= result + "#,";
+      
+    }
+    return result;
+  }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    System.out.println("Damn. Thic.");
     int x = sc.nextInt();
     int y = sc.nextInt();
     ArrayList<ArrayList<String> > outter = new ArrayList<ArrayList<String> >();
@@ -15,6 +26,19 @@ class Main {
         inner.add("#");
       }
       outter.add(inner);
+    }
+    String test;
+    while(!(test = sc.nextLine()).equals("END")){
+      //String str = sc.nextLine();
+      String array1[]= test.split(":");
+      int ycoord = Integer.parseInt(array1[0]);
+      String array2[]= array1[1].split(" ");
+      //System.out.println(outter.get(ycoord));
+      for(int i=0;i<array2.length;i++){
+        ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
+        String val = inside.get(Integer.parseInt(array2[i]));
+        val = " ";
+      }
     }
    System.out.println(outter); 
   }
