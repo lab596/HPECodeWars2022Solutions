@@ -1,5 +1,3 @@
-//What I have so far
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
@@ -28,33 +26,19 @@ class Main {
       }
       outter.add(inner);
     }
-    String test;
+    String test;    
     while(!(test = sc.nextLine()).equals("END")){
-  
-      //System.out.println("test: " + test);
-      //String str = sc.nextLine();
       String array1[]= test.split(":");
-      //System.out.println(Arrays.toString(array1));
-      int ycoord = Integer.parseInt(array1[0].strip());
+      int ycoord = Integer.parseInt(array1[0]);
       String array2[]= array1[1].strip().split(" ");
-      //System.out.println(outter.get(ycoord));
       ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
       for(int i=0;i<array2.length;i++){
-        //ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
-      //System.out.println(inside + " - " + i + " = " + Arrays.toString(array2) + Integer.parseInt(array2[i]));
         inside.set(Integer.parseInt(array2[i])," ");
-        //System.out.println(inside + " - " + Arrays.toString(array2) + " - " + i);
-        //System.out.println(inside);
       }
-      //System.out.println(inside);
       outter.set(ycoord,inside);
-      System.out.println(outter); 
-      test = sc.nextLine();
+    } 
+    for(int g=0; g< outter.size();g++){
+      System.out.println(outter.get(g));
     }
-    for(int i=0; i< outter.size();i++){
-      System.out.println(outter.get(i));
-    }
-    //System.out.println(outter); 
-   //System.out.println(outter); 
   }
 }
