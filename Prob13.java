@@ -39,6 +39,7 @@ class Main {
         String val = inside.get(Integer.parseInt(array2[i]));
         val = " ";
       }
+      test = sc.nextLine();
     }
    System.out.println(outter); 
   }
