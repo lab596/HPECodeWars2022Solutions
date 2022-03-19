@@ -46,18 +46,26 @@ class Main {
     while(!(test = sc.nextLine()).equals("END")){
       String array1[]= test.split(":");
       int ycoord = Integer.parseInt(array1[0]);
+      ArrayList<String> array22 = new ArrayList<String>(); 
       String array2[]= array1[1].strip().split(" ");
-      for(int h=0;h<array2.length;h++){
-        for(int g=0;g<array2[h].length()-1;g++){
-          if(array2[h].substring(g,g+1).equals("-")){
-            array2[h]=dash(array2[h]);
+      for(int j=0; j<array2.length; j++){
+        array22.add(array2[j]);
+      }
+      //System.out.print(array22);
+      for(int h=0;h<array22.size();h++){
+        for(int g=0;g<array22.get(h).length()-1;g++){
+          if(array22.get(h).substring(g,g+1).equals("-")){
+            String array3[] = dash(array22.get(h));
+            for(int l=0;l<array3.length;l++){
+              array22.add(array3[l]);
+            }
           }
         }
       }
-      System.out.print(Arrays.toString(array2));
+      //System.out.print(Arrays.toString(array2));
       ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
-      for(int i=0;i<array2.length;i++){
-        inside.set(Integer.parseInt(array2[i])," ");
+      for(int i=0;i<array22.size();i++){
+        inside.set(Integer.parseInt(array22.get(i))," ");
       }
       outter.set(ycoord,inside);
     } 
