@@ -51,7 +51,6 @@ class Main {
       for(int j=0; j<array2.length; j++){
         array22.add(array2[j]);
       }
-      //System.out.print(array22);
       for(int h=0;h<array22.size();h++){
         for(int g=0;g<array22.get(h).length()-1;g++){
           if(array22.get(h).substring(g,g+1).equals("-")){
@@ -64,15 +63,22 @@ class Main {
         }
       }
       ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
-      //System.out.println(inside);
-      //System.out.println(array22);
       for(int i=0;i<array22.size();i++){
         inside.set(Integer.parseInt(array22.get(i))," ");
       }
       outter.set(ycoord,inside);
     } 
-    for(int g=0; g< outter.size();g++){
-      System.out.println(outter.get(g));
+    for(ArrayList<String> a : outter){
+      int count = x;
+      for(String b : a){
+        if(count==1){
+          System.out.println(b);
+        }
+        else{
+        System.out.print(b);
+          count--;
+        }
+      }
     }
   }
 }
