@@ -14,10 +14,26 @@ class Main {
     }
     return nums2;
   }
+  public static String[] dash(String nums){
+    String[] split = nums.split("-");
+    int length = Integer.parseInt(split[1])-Integer.parseInt(split[0]);
+    int start = Integer.parseInt(split[0]);
+    int end = Integer.parseInt(split[1]);
+    String[] nums2  = new String[length];
+    for(int i=0;i<length;i++){
+      if(start<end){
+        nums2[i]=Integer.toString(start);
+        start++;
+      }
+    }
+    return nums2; 
+  }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int x = Integer.parseInt(sc.nextLine());
-    int y = Integer.parseInt(sc.nextLine());
+    String line= sc.nextLine();
+    String array0[]=line.split(" ");
+    int x = Integer.parseInt(array0[0]);
+    int y = Integer.parseInt(array0[1]);
     ArrayList<ArrayList<String> > outter = new ArrayList<ArrayList<String> >();
     for(int i = 0; i<y; i++){
       ArrayList<String> inner = new ArrayList<String>(x);
@@ -31,6 +47,14 @@ class Main {
       String array1[]= test.split(":");
       int ycoord = Integer.parseInt(array1[0]);
       String array2[]= array1[1].strip().split(" ");
+      for(int h=0;h<array2.length;h++){
+        for(int g=0;g<array2[h].length()-1;g++){
+          if(array2[h].substring(g,g+1).equals("-")){
+            array2[h]=dash(array2[h]);
+          }
+        }
+      }
+      System.out.print(Arrays.toString(array2));
       ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
       for(int i=0;i<array2.length;i++){
         inside.set(Integer.parseInt(array2[i])," ");
