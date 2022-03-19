@@ -56,14 +56,16 @@ class Main {
         for(int g=0;g<array22.get(h).length()-1;g++){
           if(array22.get(h).substring(g,g+1).equals("-")){
             String array3[] = dash(array22.get(h));
+            array22.remove(h);
             for(int l=0;l<array3.length;l++){
               array22.add(array3[l]);
             }
           }
         }
       }
-      //System.out.print(Arrays.toString(array2));
       ArrayList<String> inside = new ArrayList<String>(Arrays.asList(format(outter.get(ycoord))));
+      //System.out.println(inside);
+      //System.out.println(array22);
       for(int i=0;i<array22.size();i++){
         inside.set(Integer.parseInt(array22.get(i))," ");
       }
