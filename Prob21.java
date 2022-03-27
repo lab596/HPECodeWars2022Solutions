@@ -1,3 +1,112 @@
+/*
+You've been tasked with writing the logic that helps calculate which two
+soccer teams in a group of four will advance further in a world cup
+tournament.
+Each of the four teams in a group will play every other team in the group
+once, resulting in a total of six games. For every game a team plays, the
+results of the game are recorded -- win, lose, or tie. In addition, for every
+game, the number of goals that team scored against their opponent
+("goals for") are recorded along with the number of goals that the
+opponent scored against the team ("goals conceded" or "goals against").
+This data is used to calculate points for each team and the two teams
+with the most points will advance to the next round.
+POINTS are awarded to teams as follows,
+3 points for a win
+1 point for a tie
+0 points for a loss
+If two teams are tied on POINTS as calculated above, the tie breaker will
+be the GOAL DIFFERENCE as calculated for each team. The GOAL
+DIFFERENCE is calculated as,
+GOAL DIFFERENCE = (All of the team's "goals for" added up) - (All of the team's "goals against" added
+up).
+Input
+The input will consist of 2 sections. The first section will contain the 4 team identifiers, 1 per line, 3 characters
+each. The next section will contain the 6 matches and their scores. Each match will consist of the first team
+identifier, a space, the score (separated by a colon), another space and then the second team identifier.
+GER
+GHA
+AUS
+SER
+SER 0:1 GHA
+GER 4:0 AUS
+GER 0:1 SER
+GHA 1:1 AUS
+GHA 0:1 GER
+AUS 2:1 SER
+Let's evaluate the games for team GHA to see how they are counted and what the standing is after each game.
+The standing is the POINTS and GOAL DIFFERENCE for the team.
+The 1st game is SER vs GHA with a score of 0:1
+which counts as: +3 POINTS (a win), +1 GOALS FOR, and +0 GOALS AGAINST
+creating a game standing of: 3 1
+The 2nd game is GHA vs AUS with a score of 1:1
+which counts as: +1 POINTS (a tie), +1 GOALS FOR, and +1 GOALS AGAINST
+creating a game standing of: 1 0
+The 3rd game is GHA vs GER 0:1
+which counts as: +0 POINTS (a loss), +0 GOALS FOR, and +1 GOALS AGAINST
+creating a game standing of: 0 -1
+The final standing for team GHA is the sum of all their game standings: 4 0
+•
+•
+•
+•
+•
+◦
+◦
+•
+◦
+◦
+•
+◦
+◦
+•
+C o d e W a r s X X V Page 1 of 2
+problem
+21 Round of 16 12
+points
+Output
+The output will be the final ranking of the four teams in the group, in descending order, starting with the top team
+based on POINTS, and using GOAL DIFFERENCE as a tie-breaker.
+For each team print the team identifier, the number of POINTS and the GOAL DIFFERENCE (which can be
+negative!).
+GER 6 4
+GHA 4 0
+AUS 4 -3
+SER 3 -1
+Discussion
+The datasets will never result in a tie in both POINTS and GOAL DIFFERENCE.
+Reminder: have you run your solution against all of the student data sets?
+Additional Examples
+Input 1 Output 1 Input 2 Output 2
+GER
+GHA
+POR
+USA
+GER 4:0 POR
+GHA 1:2 USA
+GER 2:2 GHA
+USA 2:2 POR
+USA 0:1 GER
+POR 2:1 GHA
+GER 7 5
+USA 4 0
+POR 4 -3
+GHA 1 -2
+USA
+SWE
+CHI
+THI
+CHI 0:2 SWE
+USA 13:0 THI
+SWE 5:1 THI
+USA 3:0 CHI
+SWE 0:2 USA
+THI 0:2 CHI
+USA 9 18
+SWE 6 4
+CHI 3 -3
+THI 0 -19
+*/
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
