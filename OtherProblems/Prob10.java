@@ -3,17 +3,52 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 class Main {
+  public static int highestIndex(int a, ArrayList<Integer> list){
+    for(int i=0;i<list.size();i++){
+      if(list.get(i)>a){
+        return i;
+      }
+    }
+    return -1;
+  }
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String chars = sc.nextLine();
     ArrayList <String> para = new ArrayList<>();
-    for(int i=0;i<chars.length()-1;i++){
+    for(int i=0;i<chars.length();i++){
       para.add(chars.substring(i,i+1));
     }
     System.out.println(para);
     int left = 0;
     int right = 0;
     int pairs = 0;
+    for(int i=0;i<para.size();i++){
+      if(para.get(i).equals("(")){
+        left++;
+      }
+      else{
+        right++;
+      }
+    }
+    ArrayList<Integer> index = new ArrayList<>();
+    for(int j=0;j<para.size();j++){
+      if(para.get(j).equals(")")){
+        index.add(j);
+      }
+    }
+    for(int i=0;i<para.size();i++){
+      if(para.get(i).equals("(") && highestIndex(i,index)>i){
+        int a = highestIndex(i,index);
+        para.remove(a);
+        para.remove(i);
+        System.out.print(para);
+        pairs++;
+      }
+    }
+
+
+
+    /*
     boolean temp = false;
     for(int i=0;i<para.size();i++){
       if (temp == true){
@@ -43,9 +78,11 @@ class Main {
         }
       }
     }
-    System.out.print(left);
-    System.out.print(right);
-    System.out.print(pairs);
+    */
+    
+    System.out.println(left);
+    System.out.println(right);
+    System.out.println(pairs);
   }
   
 }
